@@ -1,9 +1,7 @@
-import { motion } from 'framer-motion';
 import { Upload, FileJson, FileText } from 'lucide-react';
 import { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { useExpenseStore } from '../../store/expenseStore';
-import { Expense, Budget, FinancialGoal } from '../../types';
 import { useNotificationStore } from './NotificationSystem';
 
 export function DataImport() {

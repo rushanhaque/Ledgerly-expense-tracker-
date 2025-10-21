@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Camera, Upload, X, Image as ImageIcon } from 'lucide-react';
+import { Camera, Upload, X } from 'lucide-react';
 import { useState } from 'react';
 import Tesseract from 'tesseract.js';
 

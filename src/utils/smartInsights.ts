@@ -1,12 +1,9 @@
 import { Expense, SmartInsight, SpendingPattern } from '../types';
 import { 
   isWeekend, 
-  startOfWeek, 
-  endOfWeek, 
   differenceInDays,
   startOfMonth,
-  endOfMonth,
-  format 
+  endOfMonth
 } from 'date-fns';
 
 export class SmartInsightsEngine {

@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useExpenseStore } from '../../store/expenseStore';
-import { Target, Plus, Edit2, Trash2, TrendingUp } from 'lucide-react';
+import { Target, Plus, Trash2 } from 'lucide-react';
 import { Budget, CategoryType } from '../../types';
 
 export function BudgetManager() {

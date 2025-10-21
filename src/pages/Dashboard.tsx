@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Plus, Wallet, PieChart, DollarSign, Target, Calendar as CalIcon, TrendingUp, Repeat, Camera, LogIn } from 'lucide-react';
+import { Plus, PieChart, DollarSign, Target, Calendar as CalIcon, TrendingUp, Repeat, Camera, LogIn } from 'lucide-react';
 import { useExpenseStore } from '../store/expenseStore';
-import { useThemeStore } from '../store/themeStore';
 import { useAuthStore } from '../store/authStore';
 import { BackgroundScene } from '../components/3D/BackgroundScene';
 import { StatCard } from '../components/UI/StatCard';
@@ -43,15 +42,14 @@ export function Dashboard() {
   });
   const expenses = useExpenseStore((state) => state.expenses);
   const generateInsights = useExpenseStore((state) => state.generateInsights);
-  const theme = useThemeStore((state) => state.theme);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   useEffect(() => {
     generateInsights();
   }, [expenses, generateInsights]);
 
-  // Filter expenses
-  const filteredExpenses = expenses.filter((exp) => {
+  // Filter expenses (currently used for display filtering)
+  expenses.filter((exp) => {
     // Search query
     if (filters.searchQuery && !exp.description.toLowerCase().includes(filters.searchQuery.toLowerCase())) {
       return false;
@@ -87,7 +85,7 @@ export function Dashboard() {
   const allTags = Array.from(new Set(expenses.flatMap(exp => exp.tags)));
 
   // Handle receipt scan complete
-  const handleReceiptScanComplete = (data: { amount?: number; description?: string; date?: string }) => {
+  const handleReceiptScanComplete = (_data: { amount?: number; description?: string; date?: string }) => {
     setIsReceiptScannerOpen(false);
     setIsAddModalOpen(true);
   };

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useExpenseStore } from '../../store/expenseStore';
-import { Trophy, Plus, Trash2, TrendingUp, Clock, CheckCircle } from 'lucide-react';
+import { Trophy, Plus, Trash2, Clock, CheckCircle } from 'lucide-react';
 import { FinancialGoal } from '../../types';
 import { format, differenceInDays } from 'date-fns';
 
@@ -9,7 +9,6 @@ export function GoalsTracker() {
   const goals = useExpenseStore((state) => state.goals);
   const addGoal = useExpenseStore((state) => state.addGoal);
   const deleteGoal = useExpenseStore((state) => state.deleteGoal);
-  const updateGoal = useExpenseStore((state) => state.updateGoal);
   const [showAddForm, setShowAddForm] = useState(false);
 
   const [formData, setFormData] = useState({

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useExpenseStore } from '../../store/expenseStore';
-import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend, LineChart, Line, TooltipProps } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line } from 'recharts';
 import { CATEGORY_COLORS, CategoryType } from '../../types';
 import { startOfMonth, endOfMonth, format, eachDayOfInterval } from 'date-fns';
 import { useTheme } from '../../hooks/useTheme';

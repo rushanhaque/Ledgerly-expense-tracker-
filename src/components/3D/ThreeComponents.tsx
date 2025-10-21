@@ -6,14 +6,13 @@ import * as THREE from 'three';
 interface FloatingCardProps {
   position: [number, number, number];
   color: string;
-  amount: number;
 }
 
-export function FloatingCard({ position, color, amount }: FloatingCardProps) {
+export function FloatingCard({ position, color }: FloatingCardProps) {
   const meshRef = useRef<Mesh>(null);
   const time = useRef(0);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (meshRef.current) {
       time.current += delta;
       meshRef.current.position.y = position[1] + Math.sin(time.current * 2) * 0.1;
@@ -117,7 +116,7 @@ export function AnimatedSphere({ position, color, size = 0.5 }: AnimatedSpherePr
   );
 }
 
-export function CurrencySymbol({ symbol = '$', position = [0, 0, 0] as [number, number, number] }) {
+export function CurrencySymbol({ position = [0, 0, 0] as [number, number, number] }) {
   const meshRef = useRef<Mesh>(null);
 
   useFrame((state) => {

@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useExpenseStore } from '../../store/expenseStore';
-import { Repeat, Plus, Edit2, Trash2, Play, Pause } from 'lucide-react';
+import { Repeat, Plus, Trash2, Play, Pause } from 'lucide-react';
 import { Expense, CategoryType } from '../../types';
 
 interface RecurringExpense {
