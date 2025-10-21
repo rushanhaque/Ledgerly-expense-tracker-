@@ -1,0 +1,841 @@
+@tailwind base;
+/* Import elegant fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Minimalist Beige & Black Theme */
+  --black-primary: #000000;
+  --black-secondary: #1A1A1A;
+  --black-tertiary: #2D2D2D;
+  --beige-primary: #F5F5DC;
+  --beige-secondary: #EAE7D6;
+  --beige-accent: #D4C5A0;
+  --beige-dark: #B8A889;
+  --warm-beige: #FAF8F3;
+  --warm-gray: #4A4A4A;
+  --success: #2E7D32;
+  --warning: #F57C00;
+  --danger: #C62828;
+  --white: #FFFFFF;
+  --off-white: #FAFAFA;
+}
+
+/* Light Theme - Calm Beige Aesthetic */
+body.light {
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(245, 245, 220, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 197, 160, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, 
+      #FAFAFA 0%, 
+      #FAF8F3 25%,
+      #F5F5DC 50%,
+      #EAE7D6 75%,
+      #E5E2D1 100%);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: slowBeigeFlow 180s ease-in-out infinite;
+}
+
+body.light .glass {
+  background: rgba(250, 248, 243, 0.9);
+  border: 1px solid rgba(212, 197, 160, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06);
+}
+
+body.light .glass-dark {
+  background: rgba(250, 250, 250, 0.95);
+  border: 1px solid rgba(212, 197, 160, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+body.light .text-white {
+  color: #000000 !important;
+}
+
+body.light .text-white\/60 {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+body.light .text-white\/80 {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+body.light .text-white\/40 {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+body.light .text-white\/70 {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Fix for input, select, and dropdown elements in light mode */
+body.light input,
+body.light select,
+body.light textarea,
+body.light option {
+  color: #000000 !important;
+  background: rgba(250, 250, 250, 0.95) !important;
+  border-color: rgba(212, 197, 160, 0.4) !important;
+}
+
+body.light input::placeholder,
+body.light textarea::placeholder {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Fix for dropdown options */
+body.light select option {
+  background: #FAFAFA !important;
+  color: #000000 !important;
+}
+
+/* Fix date inputs in light mode */
+body.light input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0);
+}
+
+/* Fix for buttons in light mode */
+body.light button {
+  color: inherit;
+}
+
+body.light .input {
+  color: #000000 !important;
+  background: rgba(250, 250, 250, 0.95) !important;
+  border-color: rgba(212, 197, 160, 0.4) !important;
+}
+
+body.light .input::placeholder {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Fix for date input specific styling in light mode */
+body.light input[type="date"] {
+  color: #000000 !important;
+  background: rgba(250, 250, 250, 0.95) !important;
+}
+
+/* Fix for number input arrows in light mode */
+body.light input[type="number"]::-webkit-inner-spin-button,
+body.light input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+/* Fix for button text in light mode */
+body.light .bg-white\/10 {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light .bg-white\/20 {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light .hover\:bg-white\/10:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light .hover\:bg-white\/20:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Fix for border colors in light mode */
+body.light .border-white\/10 {
+  border-color: rgba(212, 197, 160, 0.2) !important;
+}
+
+body.light .border-white\/20 {
+  border-color: rgba(212, 197, 160, 0.3) !important;
+}
+
+body.light .border-white\/30 {
+  border-color: rgba(212, 197, 160, 0.4) !important;
+}
+
+/* Dark Theme - Calm Black Aesthetic */
+body.dark {
+  background: 
+    radial-gradient(circle at 30% 40%, rgba(45, 45, 45, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(26, 26, 26, 0.3) 0%, transparent 50%),
+    linear-gradient(135deg, 
+      #000000 0%, 
+      #0D0D0D 25%,
+      #1A1A1A 50%,
+      #2D2D2D 75%,
+      #1A1A1A 100%);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: slowBeigeFlow 180s ease-in-out infinite;
+}
+
+@keyframes slowBeigeFlow {
+  0% { 
+    background-position: 0% 0%; 
+  }
+  25% { 
+    background-position: 50% 50%; 
+  }
+  50% { 
+    background-position: 100% 100%; 
+  }
+  75% { 
+    background-position: 50% 50%; 
+  }
+  100% { 
+    background-position: 0% 0%; 
+  }
+}
+
+/* Subtle breathing effect for glassmorphism - Ultra Calm */
+@keyframes gentleBreath {
+  0%, 100% { 
+    backdrop-filter: blur(16px) saturate(120%); 
+  }
+  50% { 
+    backdrop-filter: blur(18px) saturate(125%); 
+  }
+}
+
+/* Ultra calm pulse for accents */
+@keyframes calmPulse {
+  0%, 100% { 
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.95;
+    transform: scale(1.005);
+  }
+}
+
+/* Fix for input, select, and dropdown elements in dark mode */
+body.dark input,
+body.dark select,
+body.dark textarea {
+  color: #F5F5DC !important;
+  border-color: rgba(212, 197, 160, 0.3) !important;
+}
+
+body.dark option {
+  color: #000000 !important;
+  background: #F5F5DC !important;
+}
+
+body.dark select option {
+  background: #F5F5DC !important;
+  color: #000000 !important;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: rgba(245, 245, 220, 0.5) !important;
+}
+
+body.dark .input {
+  color: #F5F5DC !important;
+  background: rgba(45, 45, 45, 0.4) !important;
+  border-color: rgba(212, 197, 160, 0.3) !important;
+}
+
+body.dark .input::placeholder {
+  color: rgba(245, 245, 220, 0.5) !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #000000 0%, #1A1A1A 50%, #2D2D2D 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Glassmorphism effect - Ultra Calm with Slow Breathing */
+.glass {
+  background: rgba(45, 45, 45, 0.3);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(212, 197, 160, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  animation: gentleBreath 30s ease-in-out infinite;
+}
+
+.glass:hover {
+  border-color: rgba(212, 197, 160, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+  animation-play-state: paused;
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(212, 197, 160, 0.25);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.7), 
+    0 0 0 1px rgba(212, 197, 160, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+  animation: gentleBreath 30s ease-in-out infinite;
+}
+
+.glass-dark:hover {
+  border-color: rgba(212, 197, 160, 0.35);
+  box-shadow: 
+    0 12px 40px 0 rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(212, 197, 160, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  animation-play-state: paused;
+}
+
+/* Gradient text - Beige accent */
+.gradient-text {
+  background: linear-gradient(135deg, #D4C5A0 0%, #B8A889 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 3D Card effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-10px) rotateX(5deg);
+}
+
+/* Luxury glow effect */
+.neon-glow {
+  box-shadow: 0 0 10px rgba(212, 197, 160, 0.3),
+              0 0 20px rgba(212, 197, 160, 0.15),
+              0 0 30px rgba(212, 197, 160, 0.08);
+}
+
+.neon-glow:hover {
+  box-shadow: 0 0 20px rgba(212, 197, 160, 0.5),
+              0 0 40px rgba(212, 197, 160, 0.3),
+              0 0 60px rgba(212, 197, 160, 0.15);
+}
+
+/* Scrollbar styling - Minimalist */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #D4C5A0 0%, #B8A889 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #EAE7D6 0%, #D4C5A0 100%);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+/* Button styles - Professional Luxury */
+.btn {
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add ripple effect to all buttons */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  @apply text-white shadow-lg;
+  background: linear-gradient(135deg, #D4C5A0 0%, #B8A889 100%);
+  border: 1px solid rgba(212, 197, 160, 0.3);
+  color: #000000;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #EAE7D6 0%, #D4C5A0 100%);
+  box-shadow: 0 8px 24px rgba(212, 197, 160, 0.4);
+}
+
+.btn-secondary {
+  @apply text-white shadow-lg hover:shadow-xl;
+  background: linear-gradient(135deg, #2D2D2D 0%, #1A1A1A 100%);
+  border: 1px solid rgba(212, 197, 160, 0.3);
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #4A4A4A 0%, #2D2D2D 100%);
+  box-shadow: 0 8px 24px rgba(45, 45, 45, 0.6);
+}
+
+/* Light mode button overrides */
+body.light .btn-secondary {
+  background: linear-gradient(135deg, #F5F5DC 0%, #EAE7D6 100%);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #000000;
+}
+
+body.light .btn-secondary:hover {
+  background: linear-gradient(135deg, #EAE7D6 0%, #D4C5A0 100%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btn-success {
+  @apply text-white shadow-lg hover:shadow-xl;
+  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+  border: 1px solid rgba(212, 197, 160, 0.2);
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, #388E3C 0%, #2E7D32 100%);
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.4);
+}
+
+/* Input styles - Minimalist */
+.input {
+  @apply w-full px-4 py-3 rounded-lg border transition-all;
+  background: rgba(45, 45, 45, 0.3);
+  border-color: rgba(212, 197, 160, 0.3);
+  color: #F5F5DC;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input::placeholder {
+  color: rgba(245, 245, 220, 0.5);
+  font-weight: 300;
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(212, 197, 160, 0.6);
+  box-shadow: 
+    0 0 0 3px rgba(212, 197, 160, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+  background: rgba(45, 45, 45, 0.4);
+}
+
+/* Dark theme input styles */
+body.dark .input {
+  background: rgba(45, 45, 45, 0.4);
+  border-color: rgba(212, 197, 160, 0.3);
+  color: #F5F5DC;
+}
+
+/* Light theme input styles */
+body.light .input {
+  background: rgba(250, 250, 250, 0.95);
+  border-color: rgba(212, 197, 160, 0.4);
+  color: #000000;
+}
+
+/* Card styles */
+.stat-card {
+  @apply glass rounded-2xl p-6;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(212, 197, 160, 0.1);
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, 
+    rgba(212, 197, 160, 0.03) 0%, 
+    rgba(45, 45, 45, 0.03) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 197, 160, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(212, 197, 160, 0.15),
+    0 0 30px rgba(212, 197, 160, 0.08);
+}
+
+.stat-card:hover::after {
+  opacity: 1;
+}
+
+/* Gradient backgrounds - Minimalist Beige */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #D4C5A0 0%, #B8A889 100%);
+}
+
+.bg-gradient-success {
+  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+}
+
+.bg-gradient-warning {
+  background: linear-gradient(135deg, #F57C00 0%, #E65100 100%);
+}
+
+.bg-gradient-danger {
+  background: linear-gradient(135deg, #C62828 0%, #B71C1C 100%);
+}
+
+/* ========================================
+   ELEGANT HOVER ANIMATIONS
+   ======================================== */
+
+/* Underline Slide-In Animation */
+.hover-underline {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #D4C5A0, #EAE7D6);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Soft Shadow Lift */
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(212, 197, 160, 0.2),
+    0 0 30px rgba(212, 197, 160, 0.1);
+}
+
+/* Fade-In Overlay */
+.hover-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, 
+    rgba(212, 197, 160, 0.05) 0%, 
+    rgba(45, 45, 45, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.hover-overlay:hover::before {
+  opacity: 1;
+}
+
+/* Elegant Border Reveal */
+.hover-border-reveal {
+  position: relative;
+  border: 1px solid transparent;
+  transition: all 0.4s ease;
+}
+
+.hover-border-reveal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #D4C5A0, #EAE7D6, #D4C5A0);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hover-border-reveal:hover::before {
+  opacity: 1;
+}
+
+/* Shimmer Effect */
+.hover-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 197, 160, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.hover-shimmer:hover::after {
+  left: 100%;
+}
+
+/* Glow Pulse */
+.hover-glow {
+  transition: all 0.4s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 
+    0 0 20px rgba(212, 197, 160, 0.4),
+    0 0 40px rgba(212, 197, 160, 0.2),
+    0 8px 24px rgba(0, 0, 0, 0.3);
+  border-color: rgba(212, 197, 160, 0.6);
+}
+
+/* Scale with Shadow */
+.hover-scale {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Slide-Up Content */
+.hover-slide-up {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-slide-up .hover-content {
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-slide-up:hover .hover-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Rotate Border */
+.hover-rotate-border {
+  position: relative;
+}
+
+.hover-rotate-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    #D4C5A0,
+    #EAE7D6,
+    #D4C5A0
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  animation: rotateBorder 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.hover-rotate-border:hover::before {
+  opacity: 0.6;
+  animation-play-state: running;
+}
+
+@keyframes rotateBorder {
+  to { transform: rotate(360deg); }
+}
+
+/* Typography Hover Effects */
+.hover-text-gold {
+  transition: all 0.3s ease;
+}
+
+.hover-text-gold:hover {
+  color: #D4C5A0;
+  text-shadow: 0 0 10px rgba(212, 197, 160, 0.3);
+}
+
+/* Card Hover - Combined Effects */
+.elegant-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(212, 197, 160, 0.1);
+}
+
+.elegant-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, 
+    rgba(212, 197, 160, 0.03) 0%, 
+    rgba(45, 45, 45, 0.03) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.elegant-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 197, 160, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(212, 197, 160, 0.15),
+    0 0 30px rgba(212, 197, 160, 0.08);
+}
+
+.elegant-card:hover::after {
+  opacity: 1;
+}
+
+/* Button Hover - Enhanced */
+.elegant-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elegant-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.elegant-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.elegant-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+}
