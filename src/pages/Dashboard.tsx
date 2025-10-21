@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Plus, PieChart, DollarSign, Target, Calendar as CalIcon, TrendingUp, Repeat, Camera, LogIn } from 'lucide-react';
+import { Plus, PieChart, DollarSign, Target, Calendar as CalIcon, TrendingUp, Repeat, Camera, LogIn, ShoppingBag } from 'lucide-react';
 import { useExpenseStore } from '../store/expenseStore';
 import { useAuthStore } from '../store/authStore';
 import { BackgroundScene } from '../components/3D/BackgroundScene';
@@ -18,6 +18,7 @@ import { RecurringExpenseManager } from '../components/UI/RecurringExpenseManage
 import { CalendarView } from '../components/UI/CalendarView';
 import { ComparisonCharts } from '../components/UI/ComparisonCharts';
 import { ReceiptScanner } from '../components/UI/ReceiptScanner';
+import { PurchaseAdvisor } from '../components/UI/PurchaseAdvisor';
 import { ThemeToggle } from '../components/UI/ThemeToggle';
 import { NotificationCenter, NotificationToast } from '../components/UI/NotificationSystem';
 import { AuthModal } from '../components/UI/AuthModal';
@@ -29,7 +30,7 @@ export function Dashboard() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isReceiptScannerOpen, setIsReceiptScannerOpen] = useState(false);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<'overview' | 'budgets' | 'goals' | 'recurring' | 'calendar' | 'analytics'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'budgets' | 'goals' | 'recurring' | 'calendar' | 'analytics' | 'advisor'>('overview');
   const [filters, setFilters] = useState<FilterOptions>({
     searchQuery: '',
     categories: [],
@@ -316,6 +317,20 @@ export function Dashboard() {
               <TrendingUp className="w-5 h-5" />
               Analytics
             </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveTab('advisor')}
+              className={`px-6 py-3 rounded-xl font-semibold transition-all flex items-center gap-2 whitespace-nowrap ${
+                activeTab === 'advisor'
+                  ? 'bg-gradient-to-r from-purple-500 to-pink-600 text-white shadow-lg'
+                  : 'bg-white/10 text-white/70 hover:bg-white/20'
+              }`}
+            >
+              <ShoppingBag className="w-5 h-5" />
+              Buy Advisor
+            </motion.button>
           </div>
 
           {/* Stats Grid */}
@@ -423,6 +438,19 @@ export function Dashboard() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2">
                 <ComparisonCharts />
+              </div>
+              <div className="lg:col-span-1">
+                <div className="sticky top-4">
+                  <InsightsPanel />
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'advisor' && (
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                <PurchaseAdvisor />
               </div>
               <div className="lg:col-span-1">
                 <div className="sticky top-4">
